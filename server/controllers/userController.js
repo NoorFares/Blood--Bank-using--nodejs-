@@ -9,3 +9,10 @@ const connection = mysql.createConnection({
   password:'',
   database: 'bloodbank'
 });
+connection.connect(error => {
+    if(error) {
+      console.log(error);
+    }else{
+      console.log('MYSQL connected of table user...*!');
+    }
+  });
