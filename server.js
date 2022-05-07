@@ -26,6 +26,7 @@ const db = mysql.createConnection({
   app.engine('.hbs', handlebars.engine);
   app.set('view engine', '.hbs');
   app.listen(port, 
-    () => console.log(`Listening on port ${port}`));
+    () =>{
+         console.log(`Listening on port ${port}`)});
 
   
