@@ -25,6 +25,9 @@ const db = mysql.createConnection({
   const handlebars = exphbs.create({ extname: '.hbs',});
   app.engine('.hbs', handlebars.engine);
   app.set('view engine', '.hbs');
+  const routes = require('./server/routes/user');
+   app.use('/', routes);
+
   app.listen(port, 
     () =>{
          console.log(`Listening on port ${port}`)});
