@@ -43,3 +43,6 @@ exports.view = (req, res) => {
       console.log('The data from user table: \n', rows);
     });
   }
+  exports.form = (req, res) => {
+    res.render('add-user.hbs');
+  }
