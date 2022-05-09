@@ -23,3 +23,23 @@
     </tr>
   </thead>
   <tbody>
+      {{#each rows}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td><b>{{this.name}}</b></td>
+      <td><b>{{this.blood_type}}</b></td>
+      <td><b>{{this.email}}</b></td>
+      <td><b>{{this.phone}}</b></td>
+      <td><b>{{this.address}}</b></td>
+
+      <td class="text-center">
+        <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"  style="background-color: rgb(154, 196, 244);"><i class="bi bi-eye"></i> <b>View</b></a>
+        <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small" style="background-color: darkgrey;" ><i class="bi bi-pencil"></i>
+       <b>   Edit</b></a>
+        <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"  style="background-color: rgb(246, 55, 55);"  ><i class="bi bi-person-x"></i><b> Delete</b></a>
+      </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
