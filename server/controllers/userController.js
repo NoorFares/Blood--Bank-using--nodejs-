@@ -30,7 +30,7 @@ exports.view = (req, res) => {
       console.log('The data from user table: \n', rows);
     });
   }
-  // Find User by Search
+  // Find blood Type by Search
   exports.find = (req, res) => {
     let searchTerm = req.body.search;
     // User the connection
