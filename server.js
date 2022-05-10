@@ -7,6 +7,8 @@ const dotenv = require('dotenv');
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 dotenv.config({path: './.env'});
+const  cookieParser = require('cookie-parser');
+
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
