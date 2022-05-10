@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 dotenv.config({path: './.env'});
 const  cookieParser = require('cookie-parser');
-var session = require('express-session');
+const session = require('express-session');
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -28,6 +28,8 @@ const db = mysql.createConnection({
   const handlebars = exphbs.create({ extname: '.hbs',});
   app.engine('.hbs', handlebars.engine);
   app.set('view engine', '.hbs');
+
+  app.use(cookieParser());
   const routes = require('./server/routes/user');
    app.use('/', routes);
 
