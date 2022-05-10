@@ -38,17 +38,13 @@ const db = mysql.createConnection({
   app.set('view engine', '.hbs');
 //use cookiesParser
   app.use(cookieParser());
+  //use session
   app.use(session({ 
     secret: '123458cat',
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 }
 }));
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
- 
-});
   const routes = require('./server/routes/user');
    app.use('/', routes);
 
