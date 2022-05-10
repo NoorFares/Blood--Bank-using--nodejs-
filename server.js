@@ -35,7 +35,7 @@ const db = mysql.createConnection({
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 }
-}))
+}));
   const routes = require('./server/routes/user');
    app.use('/', routes);
 
