@@ -9,6 +9,13 @@ app.use(express.json());
 dotenv.config({path: './.env'});
 const  cookieParser = require('cookie-parser');
 const session = require('express-session');
+//when use the enviroment file env error file
+/*let db= mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
+  });*/
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -16,6 +23,7 @@ const db = mysql.createConnection({
     password: '',
     database:'bloodbank'
   });
+ 
   db.connect(error => {
     if(error) {
       console.log(error);
@@ -28,7 +36,7 @@ const db = mysql.createConnection({
   const handlebars = exphbs.create({ extname: '.hbs',});
   app.engine('.hbs', handlebars.engine);
   app.set('view engine', '.hbs');
-
+//use cookiesParser
   app.use(cookieParser());
   app.use(session({ 
     secret: '123458cat',
