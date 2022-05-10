@@ -16,7 +16,6 @@ const session = require('express-session');
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
   });*/
-
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
