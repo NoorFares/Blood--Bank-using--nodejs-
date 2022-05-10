@@ -4,6 +4,7 @@ const app = express();
 const port =process.env.PORT|| 8080;
 const mysql=require('mysql');
 const dotenv = require('dotenv');
+const cookieSession = require('cookie-session');
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 dotenv.config({path: './.env'});
@@ -30,11 +31,16 @@ const db = mysql.createConnection({
       console.log('MYSQL connected...');
     }
   });
+
   //creat Template using hbs
   app.use(express.static('public'))
   const handlebars = exphbs.create({ extname: '.hbs',});
   app.engine('.hbs', handlebars.engine);
   app.set('view engine', '.hbs');
+  app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 //use cookiesParser
   app.use(cookieParser());
   //use session
