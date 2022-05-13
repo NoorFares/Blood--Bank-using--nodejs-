@@ -23,7 +23,7 @@ const db = mysql.createConnection({
     password: '',
     database:'bloodbank'
   });
- 
+
   db.connect(error => {
     if(error) {
       console.log(error);
