@@ -46,3 +46,19 @@ exports.view = (req, res) => {
   exports.form = (req, res) => {
     res.render('add-user.hbs');
   }
+  exports.create = (req, res) => {
+    const { name, blood_type, email, phone, address } = req.body;
+    let searchTerm = req.body.search;
+    // User the connection
+    connection.query('INSERT INTO user SET name = ?, blood_type = ?, email = ?, phone = ?, address = ?', [name, blood_type, email, phone, address], (err, rows) => {
+      if (!err) {
+        res.render('add-user.hbs', { alert: `${name} added successfully.` });
+      } else {
+        console.log(err);
+      }
+      console.log('The data from user table: \n', rows);
+    });
+  }
+ 
+
+
