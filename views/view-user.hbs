@@ -4,3 +4,10 @@
     <li class="breadcrumb-item active" aria-current="page">View Donors</li>
   </ol>
 </nav>
+<div class="view-user p-5">
+  {{#each rows}}
+  <div class="row mb-2">
+    <div class="col text-center">
+      <h3>{{this.name}}</h3>
+    </div>
+  </div>
