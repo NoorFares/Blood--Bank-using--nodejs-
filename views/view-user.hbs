@@ -11,3 +11,30 @@
       <h3>{{this.name}}</h3>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Blood Type</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+           <th scope="col">Address</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><b>{{this.name}}</b></th>
+            <td><b>{{this.blood_type}}</b></td>
+            <td><b>{{this.email}}</b></td>
+            <td><b>{{this.phone}}</b></td>
+             <td><b>{{this.address}}</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+  {{/each}}
+</div>
