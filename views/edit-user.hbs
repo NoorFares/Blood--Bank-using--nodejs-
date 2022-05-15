@@ -4,3 +4,15 @@
     <li class="breadcrumb-item active" aria-current="page">Edit Donor</li>
   </ol>
 </nav>
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+   <b> {{alert}}</b>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{{/if}}
+
+{{#each rows}}
+<form class="row g-3 needs-validation" method="POST" action="/edituser/{{this.id}}" novalidate> 
+  {{> user-form}}
+</form>
+{{/each}}
