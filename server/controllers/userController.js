@@ -61,4 +61,17 @@ exports.view = (req, res) => {
   }
  
 
+// View Donor
+exports.viewall = (req, res) => {
 
+  // User the connection
+  connection.query('SELECT * FROM user WHERE id = ?', [req.params.id], (err, rows) => {
+    if (!err) {
+      res.render('view-user', { rows });
+    } else {
+      console.log(err);
+    }
+    console.log('The data from user table: \n', rows);
+  });
+
+}
