@@ -23,7 +23,6 @@ const db = mysql.createConnection({
     password: '',
     database:'bloodbank'
   });
-
   db.connect(error => {
     if(error) {
       console.log(error);
@@ -31,7 +30,6 @@ const db = mysql.createConnection({
       console.log('MYSQL connected...');
     }
   });
-
   //creat Template using hbs
   app.use(express.static('public'))
   const handlebars = exphbs.create({ extname: '.hbs',});
@@ -56,5 +54,3 @@ const db = mysql.createConnection({
   app.listen(port, 
     () =>{
          console.log(`Listening on port ${port}`)});
-
-  
