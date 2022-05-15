@@ -7,5 +7,7 @@ router.post('/', userController.find);
 router.get('/adduser', userController.form);
 router.post('/adduser', userController.create);
 router.get('/viewuser/:id', userController.viewall);
+router.get('/edituser/:id', userController.edit);
 module.exports = router;
+
 
