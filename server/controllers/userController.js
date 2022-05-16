@@ -87,3 +87,27 @@ exports.edit = (req, res) => {
     console.log('The data from user table: \n', rows);
   });
 }
+
+ // Update donor
+ exports.update = (req, res) => {
+  const { name, blood_type, email, phone, address } = req.body;
+  // User the connection
+  connection.query('UPDATE user SET  name = ?, blood_type = ?, email = ?, phone = ?, address = ? WHERE id = ?', [name, blood_type, email, phone,address, req.params.id], (err, rows) => {
+    if (!err) {
+      // User the connection
+      connection.query('SELECT * FROM user WHERE id = ?', [req.params.id], (err, rows) => {
+        // When done with the connection, release it
+        if (!err) {
+          res.render('edit-user.hbs', { rows, alert: `${name} has been updated.` });
+        } else {
+          
+          console.log(err);
+        }
+        console.log('The data from user table: \n', rows);
+      });
+    } else {
+      console.log(err);
+    }
+    console.log('The data from user table: \n', rows);
+  });
+}
