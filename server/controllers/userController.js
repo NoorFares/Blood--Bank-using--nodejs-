@@ -111,3 +111,16 @@ exports.edit = (req, res) => {
     console.log('The data from user table: \n', rows);
   });
 }
+// Delete Donor
+exports.delete = (req, res) => {
+  connection.query('UPDATE user SET status = ? WHERE id = ?', ['removed', req.params.id], (err, rows) => {
+    if (!err) {
+      let removedUser = encodeURIComponent('Volunteer successeflly removed.');
+      res.redirect('/?removed=' + removedUser);
+    } else {
+      console.log(err);
+    }
+    console.log('The data from beer table are: \n', rows);
+  });
+
+}
