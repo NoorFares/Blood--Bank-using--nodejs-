@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const app = express();
-const port =process.env.PORT|| 8080;
+const port =process.env.PORT||2002;
 const mysql=require('mysql');
 const dotenv = require('dotenv');
 const cookieSession = require('cookie-session');
@@ -17,6 +17,7 @@ const session = require('express-session');
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
   });*/
+  //create the conection of DataBase(bloodbank)
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -51,6 +52,7 @@ const db = mysql.createConnection({
   const routes = require('./server/routes/user');
    app.use('/', routes);
 
-  app.listen(port, 
+  // Server setup
+   app.listen(port, 
     () =>{
          console.log(`Listening on port ${port}`)});
